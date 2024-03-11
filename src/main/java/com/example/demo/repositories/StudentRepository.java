@@ -15,7 +15,7 @@ public interface StudentRepository extends JpaRepository<Student,Long> {
 
     //FOR MORE Queries refer to JPQL https://docs.oracle.com/cd/E11035_01/kodo41/full/html/ejb3_langref.html
     Optional<Student> findStudentByEmail(String email);
-     List<Student> findStudentsByFirstNameEqualsAndAgeIsGreaterThanEqual(String name, Integer age);
+   //  List<Student> findStudentsByFirstNameEqualsAndAgeIsGreaterThanEqual(String name, Integer age);
     //Can also write own query using @Query(select s from student s where s.email = ?1)
     //here from student refer student is the entity name set at the Student and ?1 refers the position number of send parameter argument(1,2,3)etc.
     //we even can use native query used in the sql as follows:
