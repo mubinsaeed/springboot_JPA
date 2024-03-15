@@ -12,5 +12,5 @@ Learned the following
 - Many to Many relationships
 - Transactions
 
-#Following this ER diagram
+# Following this ER diagram
 ![image](https://github.com/mubinsaeed/springboot_JPA/assets/127494370/b064caad-fd01-4808-bf8f-dba0386e64ed)
