@@ -14,3 +14,7 @@ Learned the following
 
 # Following this ER diagram
 ![image](https://github.com/mubinsaeed/springboot_JPA/assets/127494370/b064caad-fd01-4808-bf8f-dba0386e64ed)
+
+
+# Following is the Entity cycle
+![image](https://github.com/mubinsaeed/springboot_JPA/assets/127494370/46c8a531-9d0c-484a-b2b9-5060e08b9f47)
