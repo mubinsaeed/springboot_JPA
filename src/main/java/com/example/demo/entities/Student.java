@@ -4,6 +4,9 @@ import javax.annotation.Generated;
 import javax.persistence.*;
 import javax.sound.midi.Sequence;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static javax.persistence.GenerationType.SEQUENCE;
 
 @Entity(name = "student")
@@ -25,9 +28,35 @@ public class Student {
 
     private String lastname;
 
+    @OneToOne(mappedBy = "student",orphanRemoval = true)
+    private StudentIdCard studentIdCard;
+
+    @OneToMany(mappedBy = "student",orphanRemoval = true, cascade = {CascadeType.PERSIST,CascadeType.REFRESH})
+    //from above, we can map and insert book without book repository
+    private List<Book> books = new ArrayList<>();
     public Student() {
     }
 
+    //for making both tables persistent note not making Repo for book table
+    public void addBooks(Book book){
+        if (!this.books.contains(book)){
+            this.books.add(book);
+            book.setStudent(this);
+        }
+    }
+    public void removeBook(Book book){
+        if (this.books.contains(book)){
+            this.books.remove(book);
+            book.setStudent(null);
+        }
+    }
+
+    //only used the below method for lazy fetch
+    //By default for 1v1 the fetch method is EAGER
+    //For rest type it is lazy
+    public List<Book> getBooksAll(){
+        return this.books;
+    }
     public Student(String firstname, String lastname,String email,Integer age) {
         this.firstname = firstname;
         this.email = email;
